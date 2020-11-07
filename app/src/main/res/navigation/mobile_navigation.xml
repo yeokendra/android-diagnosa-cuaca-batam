@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_cuaca_kota">
+
+    <fragment
+        android:id="@+id/nav_cuaca_kota"
+        android:name="com.herman.diagnosiscuacabatam.ui.cuacaKota.CuacaKotaFragment"
+        android:label="@string/menu_cuaca_kota"
+        tools:layout="@layout/fragment_cuaca_kota" />
+
+    <fragment
+        android:id="@+id/nav_pengaturan"
+        android:name="com.herman.diagnosiscuacabatam.ui.cuacaPelabuhan.CuacaPelabuhanFragment"
+        android:label="@string/menu_pengaturan"
+        tools:layout="@layout/fragment_gallery" />
+
+
+    <fragment
+        android:id="@+id/nav_faq"
+        android:name="com.herman.diagnosiscuacabatam.ui.faq.FaqFragment"
+        android:label="@string/menu_faq"
+        tools:layout="@layout/fragment_share" />
+
+    <fragment
+        android:id="@+id/nav_exit"
+        android:name="com.herman.diagnosiscuacabatam.ui.send.SendFragment"
+        android:label="@string/menu_send"
+        tools:layout="@layout/fragment_send" />
+</navigation>

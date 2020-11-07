@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Diagnosis Cuaca Batam</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="menu_cuaca_kota">Cuaca Kota</string>
+    <string name="menu_pengaturan">Pengaturan</string>
+    <string name="menu_faq">FAQ</string>
+    <string name="menu_exit">Exit</string>
+
+    <string name="weather_code_0">Cerah</string>
+    <string name="weather_code_1">Cerah Berawan</string>
+    <string name="weather_code_3">Berawan</string>
+    <string name="weather_code_4">Berawan Tebal</string>
+    <string name="weather_code_5">Udara Kabur</string>
+    <string name="weather_code_10">Asap</string>
+    <string name="weather_code_45">Kabut</string>
+    <string name="weather_code_60">Hujan Ringan</string>
+    <string name="weather_code_61">Hujan Sedang</string>
+    <string name="weather_code_63">Hujan Lebat</string>
+    <string name="weather_code_80">Hujan Lokal</string>
+    <string name="weather_code_95">Hujan Petir</string>
+
+    <string name="wd_n">Utara</string>
+    <string name="wd_nne">Utara Timur Laut</string>
+    <string name="wd_ne">Timur Laut</string>
+    <string name="wd_ene">Timur-Timur Laut</string>
+    <string name="wd_e">Timur</string>
+    <string name="wd_ese">Timur Tenggara</string>
+    <string name="wd_se">Tenggara</string>
+    <string name="wd_sse">Selatan Tenggara</string>
+    <string name="wd_s">Selatan</string>
+    <string name="wd_ssw">Selatan Barat Daya</string>
+    <string name="wd_sw">Barat Daya</string>
+    <string name="wd_wsw">Barat-Barat Daya</string>
+    <string name="wd_w">Barat</string>
+    <string name="wd_wnw">Barat-Barat Laut</string>
+    <string name="wd_nw">Barat Laut</string>
+    <string name="wd_nnw">Utara Barat Laut</string>
+    <string name="wd_var">Berubah-Ubah</string>
+
+    <string name="temperature_pre">Cuaca diperkirakan</string>
+    <string name="temperature_cold">dingin</string>
+    <string name="temperature_average">sedang</string>
+    <string name="temperature_hot">panas</string>
+    <string name="temperature_middle"> dengan perkiraan suhu</string>
+
+    <string name="humid_pre">Tingkat kelembaban diperkirakan</string>
+    <string name="humid_low">kurang lembab</string>
+    <string name="humid_mid">cukup lembab</string>
+    <string name="humid_high">sangat lembab</string>
+    <string name="humid_middle">dengan perkiraan kelembaban</string>
+
+    <string name="rain_low">Kemungkinan hujan rendah</string>
+    <string name="rain_high">Kemungkinan hujan tinggi</string>
+
+</resources>
