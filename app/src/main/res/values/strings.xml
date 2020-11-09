@@ -65,4 +65,13 @@
     <string name="rain_low">Kemungkinan hujan rendah</string>
     <string name="rain_high">Kemungkinan hujan tinggi</string>
 
+    <string name="wind_pre">Kekuatan angin diperkirakan </string>
+    <string name="wind_middle"> dengan kecepatan </string>
+    <string name="wind_no_wind">tidak ada angin</string>
+    <string name="wind_very_slow">angin ringan</string>
+    <string name="wind_slow">angin sepoi-sepoi</string>
+    <string name="wind_mid">angin segar</string>
+    <string name="wind_fast">angin kencang</string>
+    <string name="wind_very_fast">badai</string>
+
 </resources>

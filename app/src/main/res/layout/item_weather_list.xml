@@ -8,7 +8,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_preview"
         android:layout_width="wrap_content"
-        android:layout_height="240dp"
+        android:layout_height="wrap_content"
         card_view:cardCornerRadius="2dp"
         card_view:cardUseCompatPadding="true"
         card_view:cardBackgroundColor="@color/white">
@@ -30,8 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="15:00 WIB"
+            android:textSize="16dp"
             android:textAlignment="center"
-
             android:layout_centerHorizontal="true"
             />
 
@@ -47,17 +47,59 @@
             android:id="@+id/tv_weather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cerah"
+            android:text="Hujan Sedang"
+            android:textSize="14dp"
             android:layout_below="@id/iv_weather_icon"
             android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+            android:id="@+id/ll_humid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_weather"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_centerHorizontal="true">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_droplet"
+                android:src="@drawable/ic_droplet"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="2dp"/>
+
+            <TextView
+                android:id="@+id/tv_humid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="12dp" />
+
+
+
+        </LinearLayout>
+
+
 
         <TextView
             android:id="@+id/tv_temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="24°C"
-            android:layout_marginTop="8dp"
-            android:layout_below="@id/tv_weather"
+            android:textSize="12dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@id/ll_humid"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/tv_wd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wd_nne"
+            android:textSize="12dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@id/tv_temperature"
             android:layout_centerHorizontal="true"/>
 
 

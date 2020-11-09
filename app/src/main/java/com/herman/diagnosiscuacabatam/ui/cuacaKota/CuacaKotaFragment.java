@@ -61,7 +61,7 @@ public class CuacaKotaFragment extends Fragment implements View.OnClickListener 
     private LocalDateTime mTodayDate;
     private ImageView ivNext, ivPrev;
 
-    private TextView tvSuhu, tvHumid;
+    private TextView tvSuhu, tvHumid, tvRain, tvWind;
 
     //max page 2
     private int maxPage = 1;
@@ -78,6 +78,9 @@ public class CuacaKotaFragment extends Fragment implements View.OnClickListener 
 
         tvSuhu = root.findViewById(R.id.tv_diag_temperature);
         tvHumid = root.findViewById(R.id.tv_diag_humidity);
+        tvRain = root.findViewById(R.id.tv_diag_rain);
+        tvWind = root.findViewById(R.id.tv_diag_wind);
+
 
         ivNext.setOnClickListener(this);
         ivPrev.setOnClickListener(this);
@@ -178,6 +181,12 @@ public class CuacaKotaFragment extends Fragment implements View.OnClickListener 
         int humax = -1;
         int humin = -1;
 
+        boolean isRainSet = false;
+
+        double windlow = -1;
+        double windhigh = -1;
+
+
         for(int i=0; i<list.size(); i++){
             if(!isTemperatureSet){
                 if(list.get(i).getTmax() >= 0){
@@ -197,7 +206,6 @@ public class CuacaKotaFragment extends Fragment implements View.OnClickListener 
             }
             if(!isHumidSet){
                 if(list.get(i).getHumax() >= 0){
-                    Log.e("err","called humax "+i);
                     humax = list.get(i).getHumax();
                     if(humin!=-1){
                         tvHumid.setText(buildHumidString(humin,humax));
@@ -205,7 +213,6 @@ public class CuacaKotaFragment extends Fragment implements View.OnClickListener 
                     }
                 }
                 if(list.get(i).getHumin() >= 0){
-                    Log.e("err","called humin "+i);
                     humin = list.get(i).getHumin();
                     if(humax!=-1){
                         tvHumid.setText(buildHumidString(humin,humax));
@@ -213,7 +220,29 @@ public class CuacaKotaFragment extends Fragment implements View.OnClickListener 
                     }
                 }
             }
+            if(!isRainSet){
+                if(Util.getRainChance(list.get(i).getWeather()) == Util.RAIN_HIGH){
+                    tvRain.setText(getString(R.string.rain_high));
+                    isRainSet = true;
+                }
+
+                if(i == list.size()-1){
+                    tvRain.setText(getString(R.string.rain_low));
+                }
+            }
+
+            double windSpeed = list.get(i).getWindSpeed();
+            if(windlow == -1 || windSpeed < windlow){
+                windlow = windSpeed;
+            }
+
+            if(windhigh == -1 || windSpeed > windhigh){
+                windhigh = windSpeed;
+            }
         }
+
+        tvWind.setText(buildWindString(windlow,windhigh));
+
     }
 
     private StringBuilder buildTemperatureString(int tmin, int tmax){
@@ -243,11 +272,34 @@ public class CuacaKotaFragment extends Fragment implements View.OnClickListener 
         huMax = Util.getHumid(getActivity(),humax);
         sb.append(" "+huMin);
         if(!huMax.equals(huMin)){
-            sb.append("-"+huMax);
+            sb.append(" ~ "+huMax);
         }
         sb.append(" "+getString(R.string.humid_middle));
         sb.append(" "+humin+"% ~ "+humax+"%.");
 
+        return sb;
+    }
+
+    private StringBuilder buildWindString(double windlow, double windhigh){
+        String windLow = "";
+        String windHigh = "";
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(getString(R.string.wind_pre));
+
+        windLow = Util.getWindSpeed(getActivity(),windlow);
+        windHigh = Util.getWindSpeed(getActivity(),windhigh);
+
+        sb.append(" "+windLow);
+        if(!windLow.equals(windHigh)){
+            sb.append(" ~ "+windHigh);
+        }
+        sb.append(" "+getString(R.string.wind_middle));
+        sb.append(" "+windlow);
+        if(windlow != windhigh){
+            sb.append(" ~ "+windhigh);
+        }
+        sb.append(" km/jam");
         return sb;
     }
 
@@ -266,6 +318,8 @@ public class CuacaKotaFragment extends Fragment implements View.OnClickListener 
                     holder.setText(R.id.tv_hour, Util.dateToString(item.getDate(),"HH:mm")+ " WIB");
                     holder.setText(R.id.tv_temperature, item.getTemperature() + "°C");
                     holder.setText(R.id.tv_weather, Util.getWeatherTextByCode(getActivity(),item.getWeather()));
+                    holder.setText(R.id.tv_humid,item.getHumidity()+"%");
+                    holder.setText(R.id.tv_wd, Util.getWindDirectionByCode(getActivity(), item.getWindDirection()));
                     holder.setImageResource(R.id.iv_weather_icon, Util.getWeatherIconByCode(getActivity(),item.getWeather()));
                 }
             };

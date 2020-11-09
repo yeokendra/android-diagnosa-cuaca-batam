@@ -208,6 +208,24 @@ public class Util {
             return RAIN_HIGH;
         }
     }
+
+    public static String getWindSpeed(Context context, double wind){
+        if(wind == 0){
+            return context.getString(R.string.wind_no_wind);
+        }else if(wind > 0 && wind <= 5){
+            return context.getString(R.string.wind_very_slow);
+        }else if(wind > 5 && wind <= 30){
+            return context.getString(R.string.wind_slow);
+        }else if(wind > 30 && wind <= 40){
+            return context.getString(R.string.wind_mid);
+        }else if(wind > 40 && wind <= 87){
+            return context.getString(R.string.wind_fast);
+        }else if(wind > 87){
+            return context.getString(R.string.wind_very_fast);
+        }
+
+        return "";
+    }
 }
 
 
