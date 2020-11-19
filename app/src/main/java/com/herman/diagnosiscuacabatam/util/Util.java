@@ -20,6 +20,8 @@ public class Util {
     public static final int RAIN_LOW = 10;
     public static final int RAIN_HIGH = 11;
 
+    public static final String SP_UTIL = "sp_util";
+
     public static LocalDateTime stringToDate(String dateString){
         //format yyyyMMddHHmm;
 //        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmm");
@@ -59,7 +61,7 @@ public class Util {
                 .secondOfMinute().setCopy(0)
                 .millisOfDay().setCopy(0);
         int days = Days.daysBetween(tempToday, tempDate).getDays();
-        Log.e("err","today = "+tempToday.toString()+", data = "+tempDate.toString() + " difference = " + days);
+        //Log.e("err","today = "+tempToday.toString()+", data = "+tempDate.toString() + " difference = " + days);
         return days;
     }
 
