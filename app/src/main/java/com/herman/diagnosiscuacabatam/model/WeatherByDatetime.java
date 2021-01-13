@@ -13,6 +13,7 @@ public class WeatherByDatetime implements Serializable {
     private int temperature;
     private int weather;
     private String windDirection;
+    private double windDegree;
     private double windSpeed;
     private int humax, humin;
     private int tmax, tmin;
@@ -24,6 +25,7 @@ public class WeatherByDatetime implements Serializable {
         temperature = -1;
         weather = -1;
         windDirection = "";
+        windDegree = -1;
         windSpeed = -1;
         tmax = -1;
         tmin = -1;
@@ -77,6 +79,14 @@ public class WeatherByDatetime implements Serializable {
 
     public void setWindDirection(String windDirection) {
         this.windDirection = windDirection;
+    }
+
+    public double getWindDegree() {
+        return windDegree;
+    }
+
+    public void setWindDegree(double windDegree) {
+        this.windDegree = windDegree;
     }
 
     public double getWindSpeed() {

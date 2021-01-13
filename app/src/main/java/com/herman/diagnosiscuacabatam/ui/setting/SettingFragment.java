@@ -8,20 +8,29 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import com.herman.diagnosiscuacabatam.R;
+import com.herman.diagnosiscuacabatam.model.CityCode;
 import com.herman.diagnosiscuacabatam.service.WeatherService;
 import com.herman.diagnosiscuacabatam.util.Util;
+
+import java.util.ArrayList;
 
 public class SettingFragment extends Fragment {
 
     SwitchCompat swNotif;
+    AppCompatSpinner spDefaultCity;
+
     SharedPreferences settings;
+    int currentCity;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -29,6 +38,7 @@ public class SettingFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_setting, container, false);
 
         swNotif = root.findViewById(R.id.sw_notif);
+        spDefaultCity = root.findViewById(R.id.sp_default_city);
 
         settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
         boolean isNotifOn = settings.getBoolean(Util.SP_UTIL, false);
@@ -70,10 +80,51 @@ public class SettingFragment extends Fragment {
             }
         });
 
+        ArrayList<CityCode> cityCodes = Util.populateCityCode();
+
+        ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(getActivity(),
+                android.R.layout.simple_spinner_item,cityCodes);
+
+        spDefaultCity.setAdapter(spinnerArrayAdapter);
+
+        spDefaultCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                CityCode cityCode = (CityCode) parent.getSelectedItem();
+                currentCity = cityCode.getCode();
+
+                setSpDefaultCity(currentCity);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
         return root;
     }
 
-    public void setSpNotif(boolean isNotifOn){
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        currentCity = settings.getInt(Util.SP_CITYCODES, -1);
+        if(currentCity != 0 && currentCity != -1){
+            for(int i=0; i<spDefaultCity.getAdapter().getCount();i++){
+                if(currentCity == ((CityCode)spDefaultCity.getItemAtPosition(i)).getCode()){
+                    spDefaultCity.setSelection(i);
+                }
+            }
+        }
+    }
+
+    private void setSpDefaultCity(int code){
+        SharedPreferences.Editor editor = settings.edit();
+
+        editor.putInt(Util.SP_CITYCODES, code);
+        editor.apply();
+    }
+
+    private void setSpNotif(boolean isNotifOn){
         SharedPreferences.Editor editor = settings.edit();
 
         editor.putBoolean(Util.SP_UTIL, isNotifOn);

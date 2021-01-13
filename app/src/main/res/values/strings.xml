@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Diagnosis Cuaca Batam</string>
+    <string name="app_name">Diagnosis Cuaca Kepri</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -16,7 +16,7 @@
 
     <string name="menu_cuaca_kota">Cuaca Kota</string>
     <string name="menu_pengaturan">Pengaturan</string>
-    <string name="menu_faq">FAQ</string>
+    <string name="menu_about">About</string>
     <string name="menu_exit">Exit</string>
 
     <string name="weather_code_0">Cerah</string>
@@ -50,12 +50,18 @@
     <string name="wd_nnw">Utara Barat Laut</string>
     <string name="wd_var">Berubah-Ubah</string>
 
+    <string name="temperature_min">Temperatur minimum</string>
+    <string name="temperature_max">Temperatur maximum</string>
+    <string name="temperature_avg">Temperatur rata-rata</string>
     <string name="temperature_pre">Cuaca diperkirakan</string>
     <string name="temperature_cold">dingin</string>
     <string name="temperature_average">sedang</string>
     <string name="temperature_hot">panas</string>
     <string name="temperature_middle"> dengan perkiraan suhu</string>
 
+    <string name="humid_min">Kelembaban minimum</string>
+    <string name="humid_max">Kelembaban maximum</string>
+    <string name="humid_avg">Kelembaban rata-rata</string>
     <string name="humid_pre">Tingkat kelembaban diperkirakan</string>
     <string name="humid_low">kurang lembab</string>
     <string name="humid_mid">cukup lembab</string>
@@ -65,6 +71,11 @@
     <string name="rain_low">Kemungkinan hujan rendah</string>
     <string name="rain_high">Kemungkinan hujan tinggi</string>
 
+    <string name="wind_max">Kecepatan angin maximum</string>
+    <string name="wind_min">Kecepatan angin minimum</string>
+    <string name="wind_wd_max">Arah angin saat kecepatan maximum</string>
+    <string name="wind_avg">Kecepatan angin rata-rata</string>
+    <string name="wind_most_wd">Arah angin terbanyak</string>
     <string name="wind_pre">Kekuatan angin diperkirakan </string>
     <string name="wind_middle"> dengan kecepatan </string>
     <string name="wind_no_wind">tidak ada angin</string>
@@ -73,5 +84,7 @@
     <string name="wind_mid">angin segar</string>
     <string name="wind_fast">angin kencang</string>
     <string name="wind_very_fast">badai</string>
+
+    <string name="about_body">Aplikasi Diagnosis Cuaca Kepri dibuat untuk mempermudah masyarakat Kepulauan Riau (Batam, Bintan, Lingga, Natuna, Karimun, Tanjung Pinang, Anambas) dalam menggunakan aplikasi prakiraan cuaca.</string>
 
 </resources>

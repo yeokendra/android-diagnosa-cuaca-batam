@@ -29,13 +29,20 @@ public class WeatherDataGetter {
     private ModelData mData = new ModelData();
     private ArrayList<ArrayList<WeatherByDatetime>> mWeatherListByPage = new ArrayList<>();
     private int maxPage;
+    private int cityCode;
 
 
     public interface WeatherDataPresenter {
         void onDataReady(ModelData data, ArrayList<ArrayList<WeatherByDatetime>> weatherListByPage);
     }
 
-    public void getWeather(Context context, WeatherDataPresenter presenter){
+    public void getWeather(Context context,Integer cityCode, WeatherDataPresenter presenter){
+        if(cityCode != 0 && cityCode != -1) {
+            this.cityCode = cityCode;
+        }else{
+            //batam
+            this.cityCode = 501601;
+        }
         try {
             getWeatherDataAsync = new RetrieveFeed(context, presenter).execute();
         }catch (Exception e){
@@ -92,7 +99,7 @@ public class WeatherDataGetter {
                         JSONObject jsonArea = jsonAreaList.getJSONObject(i);
 
                         //area id 501601 = batam
-                        if (jsonArea.getInt("id") == 501601) {
+                        if (jsonArea.getInt("id") == cityCode) {
                             JSONArray jsonParameterList = jsonArea.getJSONArray("parameter");
                             //.e("err",jsonParameterList.toString());
                             //Log.e("err"," length = " +jsonParameterList.length());
@@ -155,6 +162,11 @@ public class WeatherDataGetter {
                                                 if (jsonValue.getString("unit").equalsIgnoreCase("CARD")) {
                                                     mData.getWeatherDataList().get(pos).setWindDirection(jsonValue.getString("content"));
                                                     Log.e("err", mData.getWeatherDataList().get(pos).getWindDirection() + " ");
+                                                    break;
+                                                }
+                                                if (jsonValue.getString("unit").equalsIgnoreCase("deg")) {
+                                                    mData.getWeatherDataList().get(pos).setWindDegree(jsonValue.getDouble("content"));
+                                                    Log.e("err", mData.getWeatherDataList().get(pos).getWindDegree() + " ");
                                                     break;
                                                 }
                                             }

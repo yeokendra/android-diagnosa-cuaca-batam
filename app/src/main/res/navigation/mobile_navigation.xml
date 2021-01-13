@@ -20,13 +20,13 @@
 
     <fragment
         android:id="@+id/nav_faq"
-        android:name="com.herman.diagnosiscuacabatam.ui.faq.FaqFragment"
-        android:label="@string/menu_faq"
-        tools:layout="@layout/fragment_share" />
+        android:name="com.herman.diagnosiscuacabatam.ui.faq.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
 
     <fragment
         android:id="@+id/nav_exit"
-        android:name="com.herman.diagnosiscuacabatam.ui.send.SendFragment"
+        android:name="com.herman.diagnosiscuacabatam.ui.send.ExitFragment"
         android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
+        tools:layout="@layout/fragment_exit" />
 </navigation>

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.herman.diagnosiscuacabatam.R;
+import com.herman.diagnosiscuacabatam.model.CityCode;
 
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
@@ -13,6 +14,7 @@ import org.joda.time.format.DateTimeFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Util {
@@ -21,6 +23,7 @@ public class Util {
     public static final int RAIN_HIGH = 11;
 
     public static final String SP_UTIL = "sp_util";
+    public static final String SP_CITYCODES = "sp_citycodes";
 
     public static LocalDateTime stringToDate(String dateString){
         //format yyyyMMddHHmm;
@@ -61,7 +64,7 @@ public class Util {
                 .secondOfMinute().setCopy(0)
                 .millisOfDay().setCopy(0);
         int days = Days.daysBetween(tempToday, tempDate).getDays();
-        //Log.e("err","today = "+tempToday.toString()+", data = "+tempDate.toString() + " difference = " + days);
+        Log.e("err","today = "+tempToday.toString()+", data = "+tempDate.toString() + " difference = " + days);
         return days;
     }
 
@@ -227,6 +230,19 @@ public class Util {
         }
 
         return "";
+    }
+
+    public static ArrayList<CityCode> populateCityCode(){
+        ArrayList<CityCode> cityCodes = new ArrayList<>();
+        cityCodes.add(new CityCode(501601,"Batam"));
+        cityCodes.add(new CityCode(501602,"Bintan"));
+        cityCodes.add(new CityCode(501369,"Lingga"));
+        cityCodes.add(new CityCode(501370,"Natuna"));
+        cityCodes.add(new CityCode(501603,"Karimun"));
+        cityCodes.add(new CityCode(501371,"Tanjung Pinang"));
+        cityCodes.add(new CityCode(501372,"Anambas"));
+
+        return cityCodes;
     }
 }
 
