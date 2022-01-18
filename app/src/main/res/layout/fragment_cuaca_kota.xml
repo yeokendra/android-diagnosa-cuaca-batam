@@ -15,76 +15,76 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/sp_city"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:layout_alignParentTop="true"/>
+<!--            <androidx.appcompat.widget.AppCompatSpinner-->
+<!--                android:id="@+id/sp_city"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                android:paddingLeft="16dp"-->
+<!--                android:paddingRight="16dp"-->
+<!--                android:layout_alignParentTop="true"/>-->
 
-            <RelativeLayout
-                android:id="@+id/rl_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/sp_city">
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/rl_date"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/sp_city">-->
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_prev"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_arrow_left"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true"/>
+<!--                <androidx.appcompat.widget.AppCompatImageView-->
+<!--                    android:id="@+id/iv_prev"-->
+<!--                    android:layout_width="32dp"-->
+<!--                    android:layout_height="32dp"-->
+<!--                    android:src="@drawable/ic_arrow_left"-->
+<!--                    android:paddingTop="8dp"-->
+<!--                    android:paddingBottom="8dp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_alignParentStart="true"/>-->
 
-                <TextView
-                    android:id="@+id/tv_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:textColor="@color/text_primary"
-                    android:layout_centerInParent="true" />
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_date"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginEnd="16dp"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textSize="16sp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    android:textColor="@color/text_primary"-->
+<!--                    android:layout_centerInParent="true" />-->
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_next"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_arrow_right"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentEnd="true"/>
+<!--                <androidx.appcompat.widget.AppCompatImageView-->
+<!--                    android:id="@+id/iv_next"-->
+<!--                    android:layout_width="32dp"-->
+<!--                    android:layout_height="32dp"-->
+<!--                    android:src="@drawable/ic_arrow_right"-->
+<!--                    android:paddingTop="8dp"-->
+<!--                    android:paddingBottom="8dp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_alignParentEnd="true"/>-->
 
-            </RelativeLayout>
+<!--            </RelativeLayout>-->
 
-            <View
-                android:id="@+id/v_line_1"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/text_primary"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_below="@id/rl_date"/>
+<!--            <View-->
+<!--                android:id="@+id/v_line_1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/text_primary"-->
+<!--                android:layout_marginLeft="16dp"-->
+<!--                android:layout_marginRight="16dp"-->
+<!--                android:layout_below="@id/rl_date"/>-->
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_weather"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:clipToPadding="false"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_below="@id/v_line_1">
+                android:layout_marginBottom="16dp">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -92,6 +92,7 @@
                 android:id="@+id/ll_diagnosis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:orientation="vertical"
                 android:layout_below="@id/rv_weather">
 
@@ -195,6 +196,137 @@
 
 
             </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_q1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_q1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:text="Pertanyaan Pertama" />
+
+                <TextView
+                    android:id="@+id/tv_q1_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_q1"
+                    android:layout_marginTop="6dp"
+                    android:text="Apakah suhu temperatur 30°C mempengaruhi cuaca?" />
+
+                <Button
+                    android:id="@+id/btn_q1_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Iya"
+                    android:layout_below="@id/tv_q1_body"/>
+
+                <Button
+                    android:id="@+id/btn_q1_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_toEndOf="@id/btn_q1_yes"
+                    android:text="Tidak"
+                    android:layout_below="@id/tv_q1_body"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_q2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:visibility="gone"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_q2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:text="Pertanyaan Kedua" />
+
+                <TextView
+                    android:id="@+id/tv_q2_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_q2"
+                    android:layout_marginTop="6dp"
+                    android:text="Apakah kelembaban cuaca melebihi 86%?" />
+
+                <Button
+                    android:id="@+id/btn_q2_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Iya"
+                    android:layout_below="@id/tv_q2_body"/>
+
+                <Button
+                    android:id="@+id/btn_q2_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_toEndOf="@id/btn_q2_yes"
+                    android:text="Tidak"
+                    android:layout_below="@id/tv_q2_body"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_q3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:visibility="gone"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_q3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:text="Pertanyaan Ketiga" />
+
+                <TextView
+                    android:id="@+id/tv_q3_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_q3"
+                    android:layout_marginTop="6dp"
+                    android:text="Apakah cuaca saat ini terang?" />
+
+                <Button
+                    android:id="@+id/btn_q3_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Iya"
+                    android:layout_below="@id/tv_q3_body"/>
+
+                <Button
+                    android:id="@+id/btn_q3_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_toEndOf="@id/btn_q3_yes"
+                    android:text="Tidak"
+                    android:layout_below="@id/tv_q3_body"/>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 

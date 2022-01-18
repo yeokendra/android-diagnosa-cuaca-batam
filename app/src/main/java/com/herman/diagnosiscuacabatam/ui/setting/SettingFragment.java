@@ -54,23 +54,13 @@ public class SettingFragment extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 setSpNotif(b);
                 if(b){
-                    Log.e("err","on");
-//                    if(!WeatherService.isInstanceCreated()){
-//                        Log.e("err","service isnt created yet");
-//                        try {
-//                            Log.e("err","service creating");
-//                            getActivity().startService(new Intent(getActivity(), WeatherService.class));
-//                        }catch (NullPointerException e){
-//                            e.printStackTrace();
-//                        }
-//                    }
                     getActivity().startService(new Intent(getActivity(), WeatherService.class));
                 }else{
-                    Log.e("err","off");
+                    //Log.e("err","off");
                     if(WeatherService.isInstanceCreated()){
-                        Log.e("err","service already created");
+                        //Log.e("err","service already created");
                         try {
-                            Log.e("err","service stopping");
+                            //Log.e("err","service stopping");
                             getActivity().stopService(new Intent(getActivity(), WeatherService.class));
                         }catch (NullPointerException e){
                             e.printStackTrace();

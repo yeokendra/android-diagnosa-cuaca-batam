@@ -7,13 +7,17 @@ import com.herman.diagnosiscuacabatam.R;
 import com.herman.diagnosiscuacabatam.model.CityCode;
 
 import org.joda.time.Days;
+import org.joda.time.Duration;
+import org.joda.time.Hours;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
+import org.joda.time.Period;
 import org.joda.time.format.DateTimeFormat;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -26,29 +30,11 @@ public class Util {
     public static final String SP_CITYCODES = "sp_citycodes";
 
     public static LocalDateTime stringToDate(String dateString){
-        //format yyyyMMddHHmm;
-//        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmm");
-//        try {
-//            LocalDateTime date = format.parse(dateString);
-//            return date;
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-
         String pattern = "yyyyMMddHHmm";
         LocalDateTime dateTime  = LocalDateTime.parse(dateString, DateTimeFormat.forPattern(pattern));
         return dateTime;
     }
     public static String dateToString(LocalDateTime date, String format){
-//        SimpleDateFormat dateFormat = new SimpleDateFormat(format);
-//        try {
-//            String dateTime = dateFormat.format(date);
-//            return dateTime;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return "";
-//        }
         String formattedDate = date.toString(format);
         return formattedDate;
 
@@ -66,6 +52,10 @@ public class Util {
         int days = Days.daysBetween(tempToday, tempDate).getDays();
         Log.e("err","today = "+tempToday.toString()+", data = "+tempDate.toString() + " difference = " + days);
         return days;
+    }
+
+    public static Integer hoursDifference(LocalDateTime today, LocalDateTime date){
+        return Hours.hoursBetween(today, date).getHours();
     }
 
     public static String getWeatherTextByCode(Context context, int code){

@@ -98,11 +98,8 @@ public class WeatherDataGetter {
                     for (int i = 0; i < jsonAreaList.length(); i++) {
                         JSONObject jsonArea = jsonAreaList.getJSONObject(i);
 
-                        //area id 501601 = batam
                         if (jsonArea.getInt("id") == cityCode) {
                             JSONArray jsonParameterList = jsonArea.getJSONArray("parameter");
-                            //.e("err",jsonParameterList.toString());
-                            //Log.e("err"," length = " +jsonParameterList.length());
 
                             //id hu = humidity
                             //id t = temperature
@@ -115,16 +112,12 @@ public class WeatherDataGetter {
                             JSONObject jsonParameter;
                             for (int j = 0; j < jsonParameterList.length(); j++) {
                                 jsonParameter = jsonParameterList.getJSONObject(j);
-                                //Log.e("err",jsonParameter.getString("id"));
-                                //WeatherByDatetime weatherByDatetime = new WeatherByDatetime();
 
                                 if (jsonParameter.getString("id").equals("hu") || jsonParameter.getString("id").equals("t") || jsonParameter.getString("id").equals("weather")
                                         || jsonParameter.getString("id").equals("wd") || jsonParameter.getString("id").equals("ws") || jsonParameter.getString("id").equals("humax")
                                         || jsonParameter.getString("id").equals("humin") || jsonParameter.getString("id").equals("tmax") || jsonParameter.getString("id").equals("tmin")) {
 
                                     JSONArray jsonTimerangeList = jsonParameter.getJSONArray("timerange");
-                                    //Log.e("err",jsonTimerangeList.toString());
-
 
                                     if (jsonParameter.getString("id").equals("hu") || jsonParameter.getString("id").equals("weather")) {
                                         //loop through Humidity or Weather
@@ -222,25 +215,21 @@ public class WeatherDataGetter {
 
 
                                 } else {
-                                    Log.e("err", "nope");
+                                    Log.e("err", "error");
                                 }
 
                             }
 
                             maxPage = Util.daysDifference(mTodayDate, (mData.getWeatherDataList().get(mData.getWeatherDataList().size() - 1)).getDate());
-                            Log.e("err", maxPage + " < max page");
                             mWeatherListByPage.clear();
                             for (int x = 0; x <= maxPage; x++) {
                                 mWeatherListByPage.add(new ArrayList<WeatherByDatetime>());
                                 for (int y = 0; y < mData.getWeatherDataList().size(); y++) {
                                     if (Util.daysDifference(mTodayDate, mData.getWeatherDataList().get(y).getDate()) == x) {
                                         mWeatherListByPage.get(x).add(mData.getWeatherDataList().get(y));
-                                        //Log.e("err","today = "+mTodayDate.toString()+", data = "+mData.getWeatherDataList().get(y).getDate() + " differecence = " + Util.daysDifference(mTodayDate,mData.getWeatherDataList().get(y).getDate()));
                                     }
                                 }
                             }
-//                            formatted = jsonTimerange.getString("datetime");
-//                            Log.e("err",formatted);
                         }
                     }
 
